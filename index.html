@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Learn Claude AI — 1:1 private classes for complete beginners</title>
-<meta name="description" content="Private, one-on-one online classes for complete beginners who want to learn Claude AI. 60-minute sessions with hands-on practice, no tech background required. Book your first class for $35.">
+<meta name="description" content="Private, one-on-one online classes for complete beginners who want to learn Claude AI. 60-minute sessions with hands-on practice, no tech background required.">
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://claudewithkamil.online/">
@@ -14,13 +14,13 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://claudewithkamil.online/">
 <meta property="og:title" content="Learn Claude AI — 1:1 private classes for complete beginners">
-<meta property="og:description" content="Private, one-on-one online classes for complete beginners who want to learn Claude AI. 60-minute sessions, no tech background required. Book from $35.">
+<meta property="og:description" content="Private, one-on-one online classes for complete beginners who want to learn Claude AI. 60-minute sessions, no tech background required.">
 <meta property="og:locale" content="en_US">
 
 <!-- Twitter / X card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learn Claude AI — 1:1 private classes for complete beginners">
-<meta name="twitter:description" content="Private, one-on-one online classes for complete beginners who want to learn Claude AI. 60-minute sessions, no tech background required. Book from $35.">
+<meta name="twitter:description" content="Private, one-on-one online classes for complete beginners who want to learn Claude AI. 60-minute sessions, no tech background required.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,17 +64,8 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "Single Class",
-          "price": "35",
-          "priceCurrency": "USD",
-          "description": "One 60-minute 1:1 online Claude AI tutoring session"
-        },
-        {
-          "@type": "Offer",
-          "name": "Monthly Plan",
-          "price": "150",
-          "priceCurrency": "USD",
-          "description": "Monthly plan for ongoing 1:1 Claude AI tutoring sessions"
+          "name": "1:1 Claude AI Class",
+          "description": "60-minute private online Claude AI tutoring session"
         }
       ]
     },
@@ -95,14 +86,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No experience is required. These classes are designed for complete beginners with zero tech background. No jargon, no overwhelm — just clear learning at your own pace."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does a Claude AI tutoring session cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A single 60-minute 1:1 session costs $35. A monthly plan for ongoing sessions is available for $150 per month."
           }
         },
         {
@@ -518,10 +501,9 @@
         <div class="row"><span class="k">Format</span><span class="v">1:1, online</span></div>
         <div class="row"><span class="k">Length</span><span class="v">60 minutes</span></div>
         <div class="row"><span class="k">Experience needed</span><span class="v">None</span></div>
-        <div class="row"><span class="k">Payment</span><span class="v">Secure checkout</span></div>
-        <div style="display: flex; gap: 8px; flex-direction: column; margin-top: 16px;">
-          <button class="btn primary" onclick="openCheckout('single')">Single Class — $35 <span class="arrow">→</span></button>
-          <button class="btn ghost" onclick="openCheckout('monthly')">Monthly Plan — $150/mo <span class="arrow">→</span></button>
+        <div class="row"><span class="k">Booking</span><span class="v">Reply within 1 day</span></div>
+        <div style="margin-top: 16px;">
+          <a href="mailto:usmanov.kamil.pt@gmail.com?subject=Book%20a%20class" class="btn primary">Book a class <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -535,23 +517,6 @@
     <div>usmanov.kamil.pt@gmail.com</div>
   </div>
 </footer>
-
-<script>
-  // Stripe Payment Links
-  const checkoutLinks = {
-    single: 'https://buy.stripe.com/test_YOUR_SINGLE_CLASS_LINK_HERE',
-    monthly: 'https://buy.stripe.com/test_YOUR_MONTHLY_PLAN_LINK_HERE'
-  };
-
-  function openCheckout(type) {
-    const link = checkoutLinks[type];
-    if (link.includes('test_YOUR')) {
-      alert('⚠️ Payment links not configured yet.\n\nSteps:\n1. Create products in Stripe dashboard\n2. Generate payment links\n3. Paste URLs into the script above');
-      return;
-    }
-    window.location.href = link;
-  }
-</script>
 
 </body>
 </html>

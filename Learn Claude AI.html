@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn Claude AI — 1:1 private classes for complete beginners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2ec;
+    --paper: #fffdf8;
+    --ink: #1c1917;
+    --dim: #6b6560;
+    --rule: #e3dbcd;
+    --rule-strong: #d8d0c4;
+    --accent: oklch(0.62 0.13 32);
+    --accent-soft: oklch(0.62 0.13 32 / 0.10);
+    --display: "Fraunces", "Tiempos Headline", "GT Super", Georgia, serif;
+    --sans: "Inter", "Söhne", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { font-size: 16px; line-height: 1.5; }
+  a { color: inherit; }
+  p { margin: 0; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 56px; }
+  @media (max-width: 720px) { .wrap { padding: 0 24px; } }
+
+  /* Nav */
+  nav.top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 0; font-size: 13px;
+  }
+  nav.top .brand { display: flex; align-items: center; gap: 10px; font-weight: 500; letter-spacing: -0.005em; }
+  nav.top .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); }
+  nav.top .links { display: flex; gap: 28px; color: var(--dim); }
+  nav.top .links a { text-decoration: none; }
+  nav.top .links a:hover { color: var(--ink); }
+  @media (max-width: 560px) { nav.top .links a:not(.cta) { display: none; } }
+
+  /* Eyebrow */
+  .eyebrow {
+    font-size: 13px; color: var(--accent); margin-bottom: 24px;
+    display: inline-flex; align-items: center; gap: 12px;
+    letter-spacing: 0.01em;
+  }
+  .eyebrow::before {
+    content: ''; width: 28px; height: 1px; background: var(--accent);
+  }
+
+  /* Hero */
+  .hero { padding: 56px 0 96px; }
+  h1.hero-title {
+    font-family: var(--display); font-weight: 400; font-size: clamp(44px, 7vw, 84px);
+    line-height: 1.02; letter-spacing: -0.035em; margin: 0; max-width: 920px;
+  }
+  h1.hero-title em { font-style: italic; color: var(--accent); font-family: var(--display); }
+  .hero .lede {
+    margin-top: 32px; max-width: 580px; font-size: 18px; line-height: 1.55; color: var(--dim);
+  }
+  .hero .actions { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 22px; border-radius: 999px; font-size: 14px;
+    font-weight: 500; cursor: pointer; font-family: var(--sans); border: 1px solid transparent;
+    transition: transform 120ms ease, background 120ms ease;
+    text-decoration: none;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--ink); color: var(--bg); }
+  .btn.primary:hover { background: #000; }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: var(--rule-strong); }
+  .btn.ghost:hover { background: #ede6d9; }
+  .btn .arrow { transition: transform 160ms ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  /* Meta row under hero */
+  .meta-row {
+    display: flex; gap: 32px; margin-top: 36px; font-size: 13px; color: var(--dim);
+    flex-wrap: wrap;
+  }
+  .meta-row .item { display: flex; align-items: center; gap: 8px; }
+  .meta-row .item::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  }
+
+  /* Section frame */
+  section { border-top: 1px solid var(--rule); }
+  .section-pad { padding: 72px 0; }
+  .section-label {
+    font-family: var(--display); font-style: italic; color: var(--accent);
+    font-size: 14px; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1;
+    letter-spacing: -0.025em; margin: 0 0 20px; max-width: 760px;
+  }
+  .section-sub { color: var(--dim); font-size: 16px; line-height: 1.6; max-width: 620px; }
+
+  /* Three-up */
+  .threeup {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--rule);
+  }
+  .threeup .cell { padding: 48px 40px; border-right: 1px solid var(--rule); }
+  .threeup .cell:last-child { border-right: none; }
+  .threeup .num {
+    font-family: var(--display); font-style: italic; color: var(--accent);
+    font-size: 14px; margin-bottom: 32px;
+  }
+  .threeup h3 {
+    font-family: var(--display); font-weight: 400;
+    font-size: 22px; line-height: 1.2; letter-spacing: -0.015em;
+    margin: 0 0 12px;
+  }
+  .threeup p { color: var(--dim); font-size: 14.5px; line-height: 1.6; }
+  @media (max-width: 860px) {
+    .threeup { grid-template-columns: 1fr; }
+    .threeup .cell { border-right: none; border-bottom: 1px solid var(--rule); }
+    .threeup .cell:last-child { border-bottom: none; }
+  }
+
+  /* About */
+  .about {
+    display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start;
+  }
+  .about .portrait {
+    position: relative; aspect-ratio: 4 / 5; background: #ede4d2;
+    border-radius: 4px; overflow: hidden;
+  }
+  .about .portrait .placeholder {
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        #e4d9c2 0 8px,
+        #ece3cf 8px 16px
+      );
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about .portrait .placeholder span {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px; color: #8b7f6a; letter-spacing: 0.06em;
+    background: #f6f2ec; padding: 6px 10px; border-radius: 2px;
+  }
+  .about .bio p + p { margin-top: 18px; }
+  .about .bio p { font-size: 16px; line-height: 1.6; color: var(--ink); }
+  .about .bio p.dim { color: var(--dim); }
+  .certs { margin-top: 28px; display: grid; gap: 0; }
+  .cert {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 14px 0; border-bottom: 1px dotted var(--rule-strong);
+    font-size: 14px;
+  }
+  .cert:last-child { border-bottom: none; }
+  .cert .name { font-weight: 500; }
+  .cert .issuer { color: var(--dim); font-family: var(--display); font-style: italic; }
+  @media (max-width: 860px) {
+    .about { grid-template-columns: 1fr; }
+    .about .portrait { max-width: 420px; aspect-ratio: 5 / 4; }
+  }
+
+  /* Session + For-you two column */
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
+  }
+  .two-col h3.sub {
+    font-family: var(--display); font-weight: 400;
+    font-size: 26px; line-height: 1.15; letter-spacing: -0.02em;
+    margin: 0 0 24px;
+  }
+  ul.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+  ul.list li {
+    padding: 16px 0 16px 28px; border-bottom: 1px solid var(--rule);
+    position: relative; font-size: 15.5px; line-height: 1.5; color: var(--ink);
+  }
+  ul.list li::before {
+    content: ''; position: absolute; left: 0; top: 26px;
+    width: 14px; height: 1px; background: var(--accent);
+  }
+  ul.list li:last-child { border-bottom: none; }
+  @media (max-width: 860px) { .two-col { grid-template-columns: 1fr; gap: 48px; } }
+
+  /* Pull quote / testimonial card */
+  .pullquote {
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 40px 44px; font-family: var(--display); font-size: 22px;
+    line-height: 1.45; letter-spacing: -0.01em;
+  }
+  .pullquote .kicker {
+    font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--dim); margin-bottom: 18px;
+  }
+  .pullquote .sig { font-family: var(--sans); font-size: 13px; color: var(--dim); margin-top: 24px; font-style: normal; }
+  .pullquote em { color: var(--accent); }
+
+  /* CTA */
+  .cta-block {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center;
+  }
+  .cta-block .headline {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(32px, 4.2vw, 48px); line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+  .cta-card {
+    background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 4px;
+    padding: 28px;
+  }
+  .cta-card .row { display: flex; justify-content: space-between; padding: 10px 0; font-size: 14px; border-bottom: 1px dotted var(--rule-strong); }
+  .cta-card .row:last-of-type { border-bottom: none; }
+  .cta-card .row .k { color: var(--dim); }
+  .cta-card .row .v { font-weight: 500; }
+  .cta-card .btn { width: 100%; justify-content: center; margin-top: 16px; }
+  @media (max-width: 860px) { .cta-block { grid-template-columns: 1fr; } }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--rule); padding: 28px 0;
+    display: flex; justify-content: space-between; color: var(--dim); font-size: 13px;
+  }
+  footer .sig { display: flex; align-items: center; gap: 10px; }
+  footer .sig .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="top">
+    <div class="brand"><span class="dot"></span>Learn Claude</div>
+    <div class="links">
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#book" class="cta">Book a class →</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="eyebrow">1:1 private classes · for complete beginners</span>
+    <h1 class="hero-title">
+      Learn Claude AI,<br/>
+      <em>one quiet hour at a time.</em>
+    </h1>
+    <p class="lede">
+      Not sure where to start with Claude? You're in the right place. I teach
+      hands-on, private sessions designed for people with zero tech background —
+      no jargon, no overwhelm, just clear learning at your own pace.
+    </p>
+    <div class="actions">
+      <a href="#book" class="btn primary">Book your first class <span class="arrow">→</span></a>
+      <a href="#how" class="btn ghost">See how a session works</a>
+    </div>
+    <div class="meta-row">
+      <span class="item">60-minute sessions</span>
+      <span class="item">Online, 1:1</span>
+      <span class="item">Work remotely with students anywhere</span>
+    </div>
+  </header>
+</div>
+
+<section id="how">
+  <div class="wrap section-pad">
+    <div class="section-label">— How it works</div>
+    <h2 class="section-title">We learn by doing, not by watching slides.</h2>
+    <p class="section-sub">
+      Every session is built around your life, your work, and what you actually
+      want to accomplish. Whether you're a small business owner, a writer, a
+      consultant, or just someone who wants to keep up — I'll meet you exactly
+      where you are.
+    </p>
+  </div>
+  <div class="threeup">
+    <div class="cell">
+      <div class="num">— 01</div>
+      <h3>We start with your goals</h3>
+      <p>Before we open Claude, we figure out what you actually want to do with it — drafting emails, research, summarizing long reads, planning your week.</p>
+    </div>
+    <div class="cell">
+      <div class="num">— 02</div>
+      <h3>You try it, live</h3>
+      <p>From the very first class, you're driving. I sit alongside you, gently guiding — so you build real confidence, not notes you'll never open again.</p>
+    </div>
+    <div class="cell">
+      <div class="num">— 03</div>
+      <h3>You leave with something you can use today</h3>
+      <p>Every session ends with a practical takeaway — a prompt, a workflow, a small habit — that fits the rest of your day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap section-pad">
+    <div class="section-label">— About me</div>
+    <div class="about">
+      <div class="portrait">
+        <div class="placeholder"><span>your photo here</span></div>
+      </div>
+      <div class="bio">
+        <h2 class="section-title" style="margin-bottom:20px;">Someone who genuinely enjoys making this stuff click.</h2>
+        <p>
+          I work remotely in the tech industry, where AI is part of my daily
+          work. I've been teaching people one-on-one for more than five years —
+          so I know how to explain things clearly, at your pace, without ever
+          making you feel behind.
+        </p>
+        <p class="dim">
+          My students are small business owners, writers, consultants, retirees,
+          and curious beginners. What they have in common is that they wanted
+          a real person to learn with — not another YouTube tutorial.
+        </p>
+        <div class="certs">
+          <div class="cert"><span class="name">Claude AI — Certified</span><span class="issuer">Anthropic</span></div>
+          <div class="cert"><span class="name">Gemini AI — Certified</span><span class="issuer">Google &middot; Coursera</span></div>
+          <div class="cert"><span class="name">5+ years of 1:1 mentoring</span><span class="issuer">Independent</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap section-pad two-col">
+    <div>
+      <div class="section-label">— Each session includes</div>
+      <h3 class="sub">A class that actually fits.</h3>
+      <ul class="list">
+        <li>A focused 1:1 lesson built entirely around your goals</li>
+        <li>Real, hands-on practice from the very first session</li>
+        <li>A judgment-free space to ask anything — no question is too basic</li>
+        <li>Practical takeaways you can use the same day</li>
+      </ul>
+    </div>
+    <div>
+      <div class="section-label">— This is for you if</div>
+      <h3 class="sub">You've been curious, but unsure where to begin.</h3>
+      <ul class="list">
+        <li>You've heard about Claude AI but have no idea where to start</li>
+        <li>You've tried it, felt confused, and quietly gave up</li>
+        <li>You want to learn with a real person, not a video on 2× speed</li>
+        <li>You're worried AI is "too technical" for you — it isn't</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap section-pad">
+    <div class="pullquote">
+      <div class="kicker">A note to the beginner</div>
+      It is proven that 1:1 learning is the most effective way to learn
+      anything — because it provides personalized instruction, immediate
+      feedback, and <em>consistent engagement.</em>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap section-pad">
+    <div class="cta-block">
+      <div>
+        <div class="section-label">— Book your first class</div>
+        <div class="headline">
+          One hour.<br/>
+          One-on-one.<br/>
+          <em style="font-style:italic;color:var(--accent);">Starts with your first question.</em>
+        </div>
+        <p class="section-sub" style="margin-top:20px;">
+          Tell me a little about what you're hoping to learn, and I'll reply
+          within a day with a few times that work for both of us.
+        </p>
+      </div>
+      <div class="cta-card">
+        <div class="row"><span class="k">Format</span><span class="v">1:1, online</span></div>
+        <div class="row"><span class="k">Length</span><span class="v">60 minutes</span></div>
+        <div class="row"><span class="k">Experience needed</span><span class="v">None</span></div>
+        <div class="row"><span class="k">First session</span><span class="v">Intro rate</span></div>
+        <a href="mailto:hello@learnclaude.example" class="btn primary">Request a time <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; padding:0 56px;">
+    <div class="sig"><span class="dot"></span> Learn Claude</div>
+    <div>hello@learnclaude.example</div>
+  </div>
+</footer>
+
+</body>
+</html>

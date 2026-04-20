@@ -314,6 +314,11 @@
   .testimonial-card .attribution::before {
     content: ''; width: 18px; height: 1px; background: var(--accent);
   }
+  .ig-link {
+    display: inline-flex; align-items: center;
+    color: var(--dim); text-decoration: none; opacity: 0.7; transition: opacity 0.15s;
+  }
+  .ig-link:hover { opacity: 1; color: var(--accent); }
 
   /* CTA */
   .cta-block {
@@ -493,6 +498,14 @@
       <div class="testimonial-card">
         <blockquote>"I've been learning data analytics on my own for some time. Kamil's classes helped me. Now it's way easier with AI and more fun."</blockquote>
         <div class="attribution">Sevil P.</div>
+      </div>
+      <div class="testimonial-card">
+        <blockquote>"Thank you so much for today 🙌 I really appreciate you taking the time to help me figure out AI and how to actually use it for building websites. It finally started to make sense 😁 Also thanks a loooooot for walking me through Cloud Design and showing me what goes where, that part was super helpful. It would've taken me ages to understand it on my own. Really glad we did this, thanks again!"</blockquote>
+        <div class="attribution">Katerina V.
+          <a href="https://www.instagram.com/katerina.voronina.art?igsh=ZXhzeXg5eTgwNmFw" target="_blank" rel="noopener" class="ig-link" aria-label="Katerina's Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>

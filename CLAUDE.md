@@ -4,28 +4,46 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-A design handoff for a single-page personal marketing site: 1:1 private Claude AI classes for complete beginners. The repository contains two files:
+A single-page personal marketing site for 1:1 private Claude AI classes aimed at complete beginners. The production page is `index.html` — it is the live, self-contained site shipped to [claudewithkamil.online](https://claudewithkamil.online/).
 
-- `Learn Claude AI.html` — the hi-fi prototype. Open in a browser to verify colors, hover states, and responsive behavior. All styles live in an inline `<style>` block at the top.
-- `README.md` — the full implementation spec: sections, design tokens, interactions, responsive breakpoints, and developer TODOs.
+Files:
+- `index.html` — the production page; all styles live in an inline `<style>` block at the top
+- `Learn Claude AI.html` — the original hi-fi prototype used as the design reference
+- `avatar.png` — instructor headshot used in the About section
 
-## Implementation goal
+There is no build step, no framework, no npm. Open `index.html` directly in a browser to develop.
 
-Recreate the design in whatever target framework exists (React/Next.js, Astro, Eleventy, or plain HTML/CSS). If no codebase exists yet, static HTML/CSS or Astro is preferred for a one-pager; Next.js if more pages are planned. The HTML file is a reference, not code to ship directly.
+## Architecture
 
-## Fidelity expectation
+Everything is in one file: `index.html`. Structure inside:
 
-**High-fidelity.** Colors, typography, spacing, hover states, and responsive breakpoints are all final. Match the spec in README.md exactly.
+1. `<head>` — Google Fonts (Fraunces + Inter), Umami analytics, Schema.org JSON-LD, Open Graph tags
+2. `<style>` block — all CSS, organized by component; CSS custom properties define all design tokens
+3. `<body>` — sections in order: nav → hero → `#how` → `#about` → two-column → pull-quote → testimonials → `#book` → footer
 
-## Key design decisions
+No JavaScript. Booking uses `mailto:usmanov.kamil.pt@gmail.com`. Anchor links use `scroll-behavior: smooth` set on `html`.
 
-- **No JavaScript or client-side state** — the page is fully static. Booking uses a mailto link.
-- **Two typefaces**: Fraunces (serif, variable, opsz axis) for headings/italic accents; Inter for body/nav/buttons. Load from Google Fonts or self-host via the framework's font loader.
-- **Three responsive breakpoints**: 860px (grid collapse), 720px (wrap padding drops to 24px), 560px (nav hides non-CTA links).
-- The coral `--accent` color (`oklch(0.62 0.13 32)`) is original to this site — not an Anthropic brand color.
+## Design tokens (CSS custom properties)
 
-## Open TODOs (from README)
+| Token | Value | Usage |
+|---|---|---|
+| `--bg` | `#f6f2ec` | Page background (warm cream) |
+| `--paper` | `#fffdf8` | Cards (pull-quote, CTA card, testimonials) |
+| `--ink` | `#1c1917` | Body text, primary button bg |
+| `--dim` | `#6b6560` | Secondary text, nav links |
+| `--rule` | `#e3dbcd` | Light 1px section dividers |
+| `--rule-strong` | `#d8d0c4` | Dotted borders, card borders |
+| `--accent` | `oklch(0.62 0.13 32)` | Coral — italic emphasis, dots, eyebrow marks (original to this site, not Anthropic brand) |
 
-1. **About photo**: replace the CSS placeholder gradient with a real `<img>` at 4:5 aspect-ratio, 4px radius.
-2. **Email address**: `hello@learnclaude.example` appears in the footer and the CTA button `mailto:` — replace with the real address.
-3. **Booking flow**: CTA button currently uses `mailto:`. Optionally wire to a form, Calendly, or Cal.com embed using the target codebase's form solution.
+Two typefaces: **Fraunces** (variable serif, headings/italic accents, opsz axis) and **Inter** (body/nav/buttons).
+
+## Responsive breakpoints
+
+- `max-width: 860px` — about grid, two-column, three-up, CTA all collapse to single column
+- `max-width: 720px` — `.wrap` horizontal padding drops to 24px
+- `max-width: 560px` — nav hides all non-CTA links
+
+## Open TODOs
+
+1. **Booking flow**: CTA button uses `mailto:`. Optionally wire to a form, Calendly, or Cal.com embed.
+2. **Testimonials**: only one student quote exists — add more as they come in using the `.testimonial-card` pattern.

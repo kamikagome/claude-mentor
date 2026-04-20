@@ -134,6 +134,10 @@
 
   /* Nav */
   nav.top {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+  }
+  nav.top .inner {
     display: flex; justify-content: space-between; align-items: center;
     padding: 28px 0; font-size: 13px;
   }
@@ -292,6 +296,9 @@
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px; margin-top: 40px;
   }
+  .testimonials-grid:has(.testimonial-card:only-child) {
+    grid-template-columns: 1fr; max-width: 680px;
+  }
   .testimonial-card {
     background: var(--paper); border: 1px solid var(--rule); border-radius: 4px;
     padding: 32px 36px;
@@ -328,6 +335,13 @@
   .cta-card .btn { width: 100%; justify-content: center; margin-top: 16px; }
   @media (max-width: 860px) { .cta-block { grid-template-columns: 1fr; } }
 
+  /* FAQ */
+  .faq { display: grid; gap: 0; max-width: 720px; margin-top: 40px; }
+  .faq-item { padding: 20px 0; border-bottom: 1px solid var(--rule); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item dt { font-weight: 500; font-size: 15.5px; margin-bottom: 8px; }
+  .faq-item dd { margin: 0; color: var(--dim); font-size: 15px; line-height: 1.6; }
+
   /* Footer */
   footer {
     border-top: 1px solid var(--rule); padding: 28px 0;
@@ -339,16 +353,18 @@
 </head>
 <body>
 
-<div class="wrap">
-  <nav class="top">
+<nav class="top">
+  <div class="wrap inner">
     <div class="brand"><span class="dot"></span>Learn Claude</div>
     <div class="links">
       <a href="#how">How it works</a>
       <a href="#about">About</a>
       <a href="#book" class="cta">Book a class →</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
+<div class="wrap">
   <header class="hero">
     <span class="eyebrow">1:1 private classes · for complete beginners</span>
     <h1 class="hero-title">
@@ -367,7 +383,7 @@
     <div class="meta-row">
       <span class="item">60-minute sessions</span>
       <span class="item">Online, 1:1</span>
-      <span class="item">Work remotely with students anywhere</span>
+      <span class="item">Certified by Anthropic &amp; Google</span>
     </div>
   </header>
 </div>
@@ -482,6 +498,31 @@
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap section-pad">
+    <div class="section-label">— Common questions</div>
+    <h2 class="section-title">Everything you might want to know.</h2>
+    <dl class="faq">
+      <div class="faq-item">
+        <dt>What is a 1:1 private Claude AI class?</dt>
+        <dd>A 60-minute, one-on-one online tutoring session where you learn to use Claude AI with a personal instructor. Each session is tailored to your goals, with hands-on practice and a practical takeaway you can use the same day.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>Do I need any experience or technical background to join?</dt>
+        <dd>No experience is required. These classes are designed for complete beginners with zero tech background. No jargon, no overwhelm — just clear learning at your own pace.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>What can I learn to do with Claude AI in these classes?</dt>
+        <dd>Sessions are built around your specific goals — drafting emails, research, summarizing documents, planning your week, or anything else you want to accomplish with Claude AI. Small business owners, consultants, traders, poker players, and retirees are all welcome.</dd>
+      </div>
+      <div class="faq-item">
+        <dt>How do I book a Claude AI class?</dt>
+        <dd>Email <a href="mailto:usmanov.kamil.pt@gmail.com?subject=Book%20a%20class" style="color:var(--accent);">usmanov.kamil.pt@gmail.com</a> to request a time. You'll receive a reply within one day with a few available times that work for both of you.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
 <section id="book">
   <div class="wrap section-pad">
     <div class="cta-block">
@@ -514,7 +555,7 @@
 <footer>
   <div class="wrap" style="display:flex; justify-content:space-between; width:100%; padding:0 56px;">
     <div class="sig"><span class="dot"></span> Learn Claude</div>
-    <div>usmanov.kamil.pt@gmail.com</div>
+    <div><a href="mailto:usmanov.kamil.pt@gmail.com" style="text-decoration:none;color:inherit;">usmanov.kamil.pt@gmail.com</a></div>
   </div>
 </footer>
 
